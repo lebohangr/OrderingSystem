@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Poppel_System.Database_Layer
+namespace Poppel_System.Customer_Entities
 {
     public class Employee
     {

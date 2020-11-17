@@ -1,4 +1,4 @@
-﻿using Poppel_System.Database_Layer;
+﻿using Poppel_System.Customer_Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poppel_System.Customer_Entities
+namespace Poppel_System.Database_Layer
 {
     public class OrderController
     {
@@ -46,13 +46,8 @@ namespace Poppel_System.Customer_Entities
             orders.Add(aOrder);
         }
 
-        private void DataBaseEdit(Customer aCustomer)
-        {
-
-            poppelDB.DatabaseEdit(aCustomer);
-
-        }
-        public void Edit(Order aOrder)
+       
+       /*** public void Edit(Order aOrder)
         {
 
             int count;
@@ -63,12 +58,12 @@ namespace Poppel_System.Customer_Entities
            /*** customers[count].Gender = aStudent.Gender;
             customers[count].PopGroup = aStudent.PopGroup;
             customers[count].HomeLanguage = aStudent.HomeLanguage;
-            customers[count].SA_Citizenship_Status = aStudent.SA_Citizenship_Status;***/
+            customers[count].SA_Citizenship_Status = aStudent.SA_Citizenship_Status;
 
             //request a database edit         
             poppelDB.DatabaseEdit(aOrder);
            
-        }
+        } ***/
 
         public void Delete(Order aOrder)
         {

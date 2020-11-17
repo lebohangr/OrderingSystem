@@ -1,6 +1,6 @@
-﻿using Poppel_System.Customer_Entities;
+﻿using Poppel_System.Database_Layer;
+using Poppel_System.Customer_Entities;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Poppel_System.Presentation_Layer
@@ -11,7 +11,9 @@ namespace Poppel_System.Presentation_Layer
         private int childFormNumber = 0;
         public CustomerController customers;
         public CreateCustomer customerForm;
-        private ViewCustomers viewCustomersForm;
+        public ProductController products;
+        private SearchCustomer viewCustomersForm;
+        private ViewExpiredInventory viewExpiredInventoryForm;
         #endregion
 
 
@@ -19,15 +21,25 @@ namespace Poppel_System.Presentation_Layer
         {
             InitializeComponent();
             customers = new CustomerController();
-           
-
+            products = new ProductController();
         }
 
         private void CreateCustomerForm()
         {
-            customerForm = new CreateCustomer(customers);// 
-           // customerForm.MdiParent = this; // set the MDIParent property of this to ‘this’  
-            customerForm.StartPosition = FormStartPosition.CenterParent;// write the code to set the start position (FormStartPosition) of the form to CenterParent
+            customerForm = new CreateCustomer(customers,this);// 
+           // customerForm.Parent = this; // set the MDIParent property of this to ‘this’  
+            customerForm.StartPosition = FormStartPosition.CenterScreen;// write the code to set the start position (FormStartPosition) of the form to CenterParent
+        }
+
+        private void CreateViewAllCustomersForm()
+        {
+            viewCustomersForm = new SearchCustomer(customers,this);
+            viewCustomersForm.StartPosition = FormStartPosition.CenterScreen;
+        }
+        public void CreateViewExpiredInventoryForm()
+        {
+            viewExpiredInventoryForm = new ViewExpiredInventory(products,this);
+            viewExpiredInventoryForm.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -64,21 +76,6 @@ namespace Poppel_System.Presentation_Layer
         {
             this.Close();
         }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-
-  
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -120,53 +117,8 @@ namespace Poppel_System.Presentation_Layer
             }
           
             customerForm.Show();
+            this.Enabled = false;
            
-        }
-
-        private void removeCustomerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void helpMenu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void expiredProductsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PoppelMDIParent_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-             
-            
-        }
-
-        private void PoppelMDIParent_Resize(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void PoppelMDIParent_AutoSizeChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void viewAllCustomersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,17 +133,32 @@ namespace Poppel_System.Presentation_Layer
             }
 
             viewCustomersForm.Show();
+            this.Enabled = false;
         }
 
-        private void CreateViewAllCustomersForm()
+        private void removeCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            viewCustomersForm = new ViewCustomers(customers);
-            viewCustomersForm.StartPosition = FormStartPosition.CenterParent;
+
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
+        private void helpMenu_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void viewExpiredInventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (viewExpiredInventoryForm == null)
+            {
+                CreateViewExpiredInventoryForm();
+            }
+            if (viewExpiredInventoryForm.inventoryFormClosed)
+            {
+                CreateViewExpiredInventoryForm();
+            }
+
+            viewExpiredInventoryForm.Show();
+            this.Enabled = false;
         }
     }
 }

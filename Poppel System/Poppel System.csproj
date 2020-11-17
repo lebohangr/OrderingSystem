@@ -48,8 +48,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,12 +72,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer Entities\Employee.cs" />
+    <Compile Include="Customer Entities\OrderItemController.cs" />
     <Compile Include="Customer Entities\Product.cs" />
     <Compile Include="Customer Entities\OrderItem.cs" />
     <Compile Include="Customer Entities\OrderController.cs" />
     <Compile Include="Customer Entities\Order.cs" />
     <Compile Include="Customer Entities\Customer.cs" />
     <Compile Include="Customer Entities\CustomerController.cs" />
+    <Compile Include="Customer Entities\ProductController.cs" />
     <Compile Include="Database Layer\DB.cs" />
     <Compile Include="Database Layer\PoppelDB.cs" />
     <Compile Include="PoppelDataset.Designer.cs">
@@ -87,11 +99,11 @@
     <Compile Include="Presentation Layer\PoppelMDIParent.Designer.cs">
       <DependentUpon>PoppelMDIParent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation Layer\ViewCustomers.cs">
+    <Compile Include="Presentation Layer\SearchCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation Layer\ViewCustomers.Designer.cs">
-      <DependentUpon>ViewCustomers.cs</DependentUpon>
+    <Compile Include="Presentation Layer\SearchCustomer.Designer.cs">
+      <DependentUpon>SearchCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation Layer\ViewExpiredInventory.cs">
       <SubType>Form</SubType>
@@ -107,8 +119,8 @@
     <EmbeddedResource Include="Presentation Layer\PoppelMDIParent.resx">
       <DependentUpon>PoppelMDIParent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation Layer\ViewCustomers.resx">
-      <DependentUpon>ViewCustomers.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation Layer\SearchCustomer.resx">
+      <DependentUpon>SearchCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation Layer\ViewExpiredInventory.resx">
       <DependentUpon>ViewExpiredInventory.cs</DependentUpon>
@@ -123,6 +135,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="PoppelDataset.xsc">
       <DependentUpon>PoppelDataset.xsd</DependentUpon>
     </None>
@@ -151,6 +164,7 @@
     <None Include="Images\background.png" />
     <None Include="Images\background - Copy.png" />
     <None Include="Images\background3.png" />
+    <None Include="Images\register.png" />
     <Content Include="PoppelDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -171,6 +185,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

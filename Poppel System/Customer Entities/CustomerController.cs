@@ -45,13 +45,8 @@ namespace Poppel_System.Customer_Entities
             poppelDB.DatabaseAdd(aCustomer);
             customers.Add(aCustomer);
         }
-        private void DataBaseEdit(Customer aCustomer)
-        {
-
-            poppelDB.DatabaseEdit(aCustomer);
-
-        }
-        public void Edit(Customer aCustomer)
+        
+       /*** public void Edit(Customer aCustomer)
         {
 
             int count;
@@ -62,12 +57,12 @@ namespace Poppel_System.Customer_Entities
            /*** customers[count].Gender = aStudent.Gender;
             customers[count].PopGroup = aStudent.PopGroup;
             customers[count].HomeLanguage = aStudent.HomeLanguage;
-            customers[count].SA_Citizenship_Status = aStudent.SA_Citizenship_Status;***/
+            customers[count].SA_Citizenship_Status = aStudent.SA_Citizenship_Status;
 
             //request a database edit         
             poppelDB.DatabaseEdit(aCustomer);
            
-        }
+        }***/
 
         public void Delete(Customer aCustomer)
         {

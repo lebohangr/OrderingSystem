@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Poppel_System.Database_Layer
+namespace Poppel_System.Customer_Entities
 {
     public class Order
     {
@@ -9,12 +9,12 @@ namespace Poppel_System.Database_Layer
         public int employeeID;
         public DateTime orderDate;
         public DateTime deliveryDate;
+        public string status;
         public enum Status
         {
             PendingPayment,
             Reserved,
             Dispatched,
-            Onroute,
             Delivered
         }
 

@@ -56,6 +56,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ViewExpiredInventory";
             this.Text = "ViewExpiredInventory";
+            this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewExpiredInventory_FormClosed);
             this.ResumeLayout(false);
 
         }

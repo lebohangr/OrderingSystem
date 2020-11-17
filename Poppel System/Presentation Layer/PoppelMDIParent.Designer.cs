@@ -85,7 +85,7 @@
             this.viewAllCustomersToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewAllCustomersToolStripMenuItem.Image")));
             this.viewAllCustomersToolStripMenuItem.Name = "viewAllCustomersToolStripMenuItem";
             this.viewAllCustomersToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
-            this.viewAllCustomersToolStripMenuItem.Text = "View all customers";
+            this.viewAllCustomersToolStripMenuItem.Text = "Search for customer";
             this.viewAllCustomersToolStripMenuItem.Click += new System.EventHandler(this.viewAllCustomersToolStripMenuItem_Click);
             // 
             // blacklistCustomerToolStripMenuItem
@@ -93,7 +93,7 @@
             this.blacklistCustomerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("blacklistCustomerToolStripMenuItem.Image")));
             this.blacklistCustomerToolStripMenuItem.Name = "blacklistCustomerToolStripMenuItem";
             this.blacklistCustomerToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
-            this.blacklistCustomerToolStripMenuItem.Text = "Blacklist";
+            this.blacklistCustomerToolStripMenuItem.Text = "View Blacklist";
             // 
             // removeCustomerToolStripMenuItem
             // 
@@ -140,6 +140,7 @@
             this.viewExpiredInventoryToolStripMenuItem.Name = "viewExpiredInventoryToolStripMenuItem";
             this.viewExpiredInventoryToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
             this.viewExpiredInventoryToolStripMenuItem.Text = "View Expired Inventory";
+            this.viewExpiredInventoryToolStripMenuItem.Click += new System.EventHandler(this.viewExpiredInventoryToolStripMenuItem_Click);
             // 
             // PoppelMDIParent
             // 
@@ -159,9 +160,6 @@
             this.Name = "PoppelMDIParent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
-            this.AutoSizeChanged += new System.EventHandler(this.PoppelMDIParent_AutoSizeChanged);
-            this.Load += new System.EventHandler(this.PoppelMDIParent_Load);
-            this.Resize += new System.EventHandler(this.PoppelMDIParent_Resize);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
