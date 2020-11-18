@@ -116,14 +116,15 @@
             // 
             this.createNewOrderToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("createNewOrderToolStripMenuItem.Image")));
             this.createNewOrderToolStripMenuItem.Name = "createNewOrderToolStripMenuItem";
-            this.createNewOrderToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.createNewOrderToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.createNewOrderToolStripMenuItem.Text = "Create new order";
+            this.createNewOrderToolStripMenuItem.Click += new System.EventHandler(this.createNewOrderToolStripMenuItem_Click);
             // 
             // viewAllOrdersToolStripMenuItem
             // 
             this.viewAllOrdersToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewAllOrdersToolStripMenuItem.Image")));
             this.viewAllOrdersToolStripMenuItem.Name = "viewAllOrdersToolStripMenuItem";
-            this.viewAllOrdersToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.viewAllOrdersToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.viewAllOrdersToolStripMenuItem.Text = "View all orders";
             // 
             // inventoryToolStripMenuItem

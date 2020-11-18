@@ -184,7 +184,7 @@ namespace Poppel_System.Database_Layer
                 {
                     FillCustomers(reader, table, customers);
                 }
-                /***
+                
                 else if (reader.HasRows & table.Equals("Orders"))
                 {
                     FillOrders(reader, table, orders);
@@ -200,7 +200,7 @@ namespace Poppel_System.Database_Layer
                     FillOrderItems(reader, table, orderItems);
                     MessageBox.Show("I item!");
                 }
-                ***/
+                
                 reader.Close(); 
 
                 cnMain.Close(); 
@@ -230,11 +230,13 @@ namespace Poppel_System.Database_Layer
             aStr = tempCust.CustNo + ", ' " + tempCust.companyName + " ' ," +
              " ' " + (tempCust.firstName).Trim() + " ' ," +
              " ' " + (tempCust.lastName).Trim() + " ' , " +
-             " ' " + (tempCust.lastName).Trim() + " ','" +
-                              " ' " + tempCust.phone + " ' " +
-             " ' " + (tempCust.address1).Trim() + " ' " + (tempCust.city).Trim() +
-             " ' " + (tempCust.postalCode) + " ' " + (tempCust.creditLimit) +
-             " ' " + (tempCust.creditStatus).Trim() + " ' " + (tempCust.blacklisted);
+             " ' " + tempCust.phone + " ' ," +
+             " ' " + (tempCust.address1).Trim() + " ' ,"+
+             " ' " + (tempCust.city).Trim() + " '," + 
+             " ' " + (tempCust.postalCode) + " ', " + 
+             " ' " + (tempCust.creditLimit) + " ' ," +
+             " ' " + (tempCust.creditStatus).Trim() + " ', "+
+             " ' " + (tempCust.blacklisted) + " ' ";
             return aStr;
             
         }
@@ -246,7 +248,7 @@ namespace Poppel_System.Database_Layer
             aStr = tempOrder.orderID + ", ' " + tempOrder.custNo + " ' ," +
              " ' " + tempOrder.employeeID + " ' ," +
              " ' " + (tempOrder.orderDate) + " ' , " +
-                              " ' " + tempOrder.deliveryDate + " ' " + (tempOrder.status).Trim();
+                              " ' " + tempOrder.deliveryDate + " ', " + (tempOrder.status).Trim();
             return aStr;
         }
 
@@ -257,7 +259,7 @@ namespace Poppel_System.Database_Layer
             aStr = tempOrderItem.orderItemID + ", ' " + tempOrderItem.orderID + " ' ," +
              " ' " + tempOrderItem.productCode + " ' ," +
              " ' " + (tempOrderItem.quantity) + " ' , " +
-                              " ' " + tempOrderItem.unitPrice;
+                              " ' ," + tempOrderItem.unitPrice;
             return aStr;
         }
 
@@ -269,7 +271,7 @@ namespace Poppel_System.Database_Layer
              " ' " + tempProduct.supplierID + " ' ," +
              " ' " + (tempProduct.name).Trim() + " ' , " +
                               " ' " + tempProduct.pdtDescription + " ' " + tempProduct.quantityinStock + " ' ,"
-                              + tempProduct.unitPrice + " ' " + tempProduct.expiryDate + " ' ";
+                              + tempProduct.unitPrice + " ' ," + tempProduct.expiryDate + " ' ";
             return aStr;
         }
 
@@ -277,7 +279,7 @@ namespace Poppel_System.Database_Layer
         {
 
             string strSQL = "";
-            strSQL = "INSERT into Customer(CustNo, CompanyName, FirstName, LastName, Phone, Address1, City, PostalCode, CreditLimit, CreditStatus, Blacklisted)" + //implement for customer
+            strSQL = "INSERT into Customer(CustNo, CompanyName, FirstName, LastName, Phone, Address_1, City, PostalCode, CreditLimit, CreditStatus, Blacklisted)" + //implement for customer
                 "VALUES(" + GetValueString(tempCust) + ")";
 
             UpdateDataSource(new SqlCommand(strSQL, cnMain));

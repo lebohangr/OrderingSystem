@@ -11,7 +11,7 @@ namespace Poppel_System.Customer_Entities
         #endregion
 
         #region Property Methods
-        public Collection<OrderItem> AllOrders
+        public Collection<OrderItem> AllOrderItems
         {
             get
             {

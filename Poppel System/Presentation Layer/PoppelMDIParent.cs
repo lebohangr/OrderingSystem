@@ -12,6 +12,9 @@ namespace Poppel_System.Presentation_Layer
         public CustomerController customers;
         public CreateCustomer customerForm;
         public ProductController products;
+        public CreateOrder orderForm;
+        public OrderController orderController;
+        OrderItemController orderItemController;
         private SearchCustomer viewCustomersForm;
         private ViewExpiredInventory viewExpiredInventoryForm;
         #endregion
@@ -22,6 +25,8 @@ namespace Poppel_System.Presentation_Layer
             InitializeComponent();
             customers = new CustomerController();
             products = new ProductController();
+            orderController = new OrderController();
+            orderItemController = new OrderItemController();
         }
 
         private void CreateCustomerForm()
@@ -29,6 +34,13 @@ namespace Poppel_System.Presentation_Layer
             customerForm = new CreateCustomer(customers,this);// 
            // customerForm.Parent = this; // set the MDIParent property of this to ‘this’  
             customerForm.StartPosition = FormStartPosition.CenterScreen;// write the code to set the start position (FormStartPosition) of the form to CenterParent
+        }
+
+        private void CreateOrderForm()
+        {
+            orderForm = new CreateOrder(products, orderController, orderItemController, this);// 
+                                                            // customerForm.Parent = this; // set the MDIParent property of this to ‘this’  
+            orderForm.StartPosition = FormStartPosition.CenterScreen;// write the code to set the start position (FormStartPosition) of the form to CenterParent
         }
 
         private void CreateViewAllCustomersForm()
@@ -158,6 +170,21 @@ namespace Poppel_System.Presentation_Layer
             }
 
             viewExpiredInventoryForm.Show();
+            this.Enabled = false;
+        }
+
+        private void createNewOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (orderForm == null)
+            {
+                CreateOrderForm();
+            }
+            if (orderForm.createOrderFormClosed)
+            {
+                CreateOrderForm();
+            }
+
+            orderForm.Show();
             this.Enabled = false;
         }
     }

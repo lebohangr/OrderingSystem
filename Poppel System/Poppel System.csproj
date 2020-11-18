@@ -93,6 +93,12 @@
     <Compile Include="Presentation Layer\CreateCustomer.Designer.cs">
       <DependentUpon>CreateCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation Layer\CreateOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Layer\CreateOrder.designer.cs">
+      <DependentUpon>CreateOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Layer\PoppelMDIParent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <EmbeddedResource Include="Presentation Layer\CreateCustomer.resx">
       <DependentUpon>CreateCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Layer\CreateOrder.resx">
+      <DependentUpon>CreateOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation Layer\PoppelMDIParent.resx">
       <DependentUpon>PoppelMDIParent.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,14 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="PoppelDataset.xsc">
       <DependentUpon>PoppelDataset.xsd</DependentUpon>
@@ -151,6 +155,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -161,10 +170,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\newOrder.png" />
+    <None Include="Resources\viewAll.png" />
+    <None Include="Resources\remove.png" />
+    <None Include="Resources\register.png" />
+    <None Include="Resources\background3.png" />
+    <None Include="Resources\blacklist%27.png" />
+    <None Include="Resources\create.png" />
+    <None Include="Resources\createOrder.png" />
+    <None Include="Resources\email.png" />
+    <None Include="Resources\expired-inventory2.png" />
+    <None Include="Resources\fax.png" />
+    <None Include="Resources\createOrder1.png" />
+    <None Include="Resources\createOrder2.png" />
+    <Content Include="Resources\hightlighted.png" />
+    <None Include="Resources\default.png" />
     <None Include="Images\background.png" />
     <None Include="Images\background - Copy.png" />
     <None Include="Images\background3.png" />
     <None Include="Images\register.png" />
+    <None Include="Images\print.png" />
     <Content Include="PoppelDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -172,7 +197,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>PoppelDatabase.mdf</DependentUpon>
     </Content>
-    <None Include="Resources\sprucy-mist-wallpaper.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

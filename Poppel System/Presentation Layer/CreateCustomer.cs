@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Poppel_System.Customer_Entities;
+using System.Text.RegularExpressions;
+using System.Collections.ObjectModel;
 
 namespace Poppel_System.Presentation_Layer
 {
@@ -35,7 +37,7 @@ namespace Poppel_System.Presentation_Layer
         {
             Customer aCustomer = new Customer();
             aCustomer.CustNo = Convert.ToInt32(txtCustNo.Text);
-            aCustomer.companyName = txtCustName.Text;
+            aCustomer.companyName = txtCompanyName.Text;
             aCustomer.firstName = txtFirstName.Text;
             aCustomer.lastName = txtLastName.Text;
             aCustomer.phone = txtPhone.Text;
@@ -44,6 +46,15 @@ namespace Poppel_System.Presentation_Layer
             aCustomer.postalCode = Convert.ToInt32(txtPostalCode.Text);
             return aCustomer;
         }
+
+        private bool ValidateInput() //input validation
+        {
+            if (txtPhone.Text.Length == 10 && txtPostalCode.Text.Length==4)
+            {
+                return true;
+            } else return false;
+        }
+      
         #endregion
 
         #region Events
@@ -70,14 +81,72 @@ namespace Poppel_System.Presentation_Layer
 
         private void CreateCustomer_Load(object sender, EventArgs e)
         {
-          //  txtCustNo.Text = 
+            Collection<Customer> allCust = customerController.AllCustomers;
+            Customer lastCust = allCust[allCust.Count - 1];
+            int newCustNum = lastCust.CustNo + 1;
+            txtCustNo.Text =  newCustNum.ToString();
         }
         #endregion
 
         private void btnCreateCustomer_Click(object sender, EventArgs e)
         {
-           // if (txtPostalCode)
-            PopulateCustomer();
+            if (ValidateInput()){
+                try
+                {
+                    customer = PopulateCustomer();
+                    customerController.Add(customer);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Please try again with different values. There might be a duplication error. Thank You.");
+                }
+                finally
+                {
+                    MessageBox.Show("Success!","Customer Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnCreateCustomer.Enabled = false;
+                    txtAddress.Enabled = false;
+                    txtCity.Enabled = false;
+                    txtCompanyName.Enabled = false;
+                    txtFirstName.Enabled = false;
+                    txtLastName.Enabled = false;
+                    txtPostalCode.Enabled = false;
+                    txtPhone.Enabled = false;
+                   
+                }
+            }
+        }
+
+        private void btnCreateCustomer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtPostalCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

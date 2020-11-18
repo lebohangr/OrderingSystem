@@ -1,4 +1,4 @@
-﻿using Poppel_System.Customer_Entities;
+﻿using Poppel_System.Database_Layer;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poppel_System.Database_Layer
+namespace Poppel_System.Customer_Entities
 {
     public class OrderController
     {

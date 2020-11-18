@@ -44,7 +44,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtCustName = new System.Windows.Forms.TextBox();
+            this.txtCompanyName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -61,12 +61,13 @@
             this.btnCreateCustomer.Text = "Create Customer";
             this.btnCreateCustomer.UseVisualStyleBackColor = false;
             this.btnCreateCustomer.Click += new System.EventHandler(this.btnCreateCustomer_Click);
+            this.btnCreateCustomer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnCreateCustomer_KeyPress);
             // 
             // txtCustNo
             // 
-            this.txtCustNo.Enabled = false;
             this.txtCustNo.Location = new System.Drawing.Point(253, 100);
             this.txtCustNo.Name = "txtCustNo";
+            this.txtCustNo.ReadOnly = true;
             this.txtCustNo.Size = new System.Drawing.Size(211, 22);
             this.txtCustNo.TabIndex = 11;
             this.txtCustNo.TextChanged += new System.EventHandler(this.txtCustNo_TextChanged);
@@ -129,9 +130,11 @@
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(253, 325);
+            this.txtPhone.MaxLength = 10;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(211, 22);
             this.txtPhone.TabIndex = 21;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // label10
             // 
@@ -146,9 +149,11 @@
             // txtPostalCode
             // 
             this.txtPostalCode.Location = new System.Drawing.Point(679, 325);
+            this.txtPostalCode.MaxLength = 4;
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.Size = new System.Drawing.Size(211, 22);
             this.txtPostalCode.TabIndex = 21;
+            this.txtPostalCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPostalCode_KeyPress);
             // 
             // label11
             // 
@@ -194,17 +199,16 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 29);
             this.btnCancel.TabIndex = 25;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Go Back";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtCustName
+            // txtCompanyName
             // 
-            this.txtCustName.Enabled = false;
-            this.txtCustName.Location = new System.Drawing.Point(676, 100);
-            this.txtCustName.Name = "txtCustName";
-            this.txtCustName.Size = new System.Drawing.Size(211, 22);
-            this.txtCustName.TabIndex = 26;
+            this.txtCompanyName.Location = new System.Drawing.Point(679, 100);
+            this.txtCompanyName.Name = "txtCompanyName";
+            this.txtCompanyName.Size = new System.Drawing.Size(211, 22);
+            this.txtCompanyName.TabIndex = 26;
             // 
             // label1
             // 
@@ -223,7 +227,7 @@
             this.BackgroundImage = global::Poppel_System.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 573);
-            this.Controls.Add(this.txtCustName);
+            this.Controls.Add(this.txtCompanyName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtFirstName);
@@ -272,7 +276,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox txtCustName;
+        private System.Windows.Forms.TextBox txtCompanyName;
         private System.Windows.Forms.Label label1;
     }
 }
